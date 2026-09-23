@@ -1,0 +1,7 @@
+{
+    "name": "practicum/logbook-system",
+    "description": "Practicum Logbook System - plain PHP, no external dependencies",
+    "require": {
+        "php": ">=8.1"
+    }
+}

@@ -42,6 +42,16 @@ nixpacks.toml       → config deploy Railway (guna PHP built-in server, tak per
 - Tarikh (entri logbook & minggu komen supervisor) **semua manual**, tiada auto-date, supaya boleh isi lewat kalau tak sempat.
 - Tandatangan digital dilukis terus atas `<canvas>` guna JavaScript asli (tiada library luar), disimpan sebagai imej PNG base64.
 
+## 🛠️ Troubleshooting: Log tunjuk "Caddy" / fail .php tak jalan
+
+Kalau bila deploy, log Railway awak tunjuk benda macam `adapted config to JSON`, `automatic HTTPS`, `serving initial configuration` — ini bermakna Railway detect project sebagai **static site** (guna Caddy server) sebab tak jumpa penanda PHP (contoh `composer.json`). Bila jadi macam ni, fail `.php` cuma di-*serve* sebagai teks biasa, bukan di-*execute*, so semua request akan error.
+
+**Fix** (dah include dalam zip ni):
+- Fail `Dockerfile` di root project — bila Railway jumpa `Dockerfile`, ia automatik guna Docker build dan **abaikan** auto-detection static/Nixpacks, jadi PHP built-in server (`php -S`) yang betul-betul jalan.
+- Fail `composer.json` (minimal, tiada dependency) sebagai penanda tambahan kalau-kalau Docker tak dipakai.
+
+Selepas push fail-fail baru ni (`Dockerfile` + `composer.json`) ke GitHub repo, pergi Railway → service awak → **Deployments** → klik **Redeploy** (atau ia auto-redeploy lepas push). Semak log — sepatutnya sekarang tunjuk build guna Docker/PHP, bukan Caddy.
+
 ## 🔧 Nak Test Local (XAMPP)
 
 1. Letak folder ni dalam `htdocs/`.

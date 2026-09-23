@@ -58,8 +58,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
       </div>
       <label>Nama Penuh</label>
       <input type="text" name="name" required placeholder="Nama anda">
-      <label>Email</label>
-      <input type="email" name="email" required placeholder="nama@email.com">
+      <label>Username / Email</label>
+      <input type="text" name="email" required placeholder="cth: farhan">
       <label>Password</label>
       <input type="password" name="password" required placeholder="Minimum 4 aksara">
       <button class="btn btn-primary btn-block" style="margin-top:18px" type="submit">Daftar & Log Masuk</button>

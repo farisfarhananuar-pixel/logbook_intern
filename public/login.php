@@ -39,8 +39,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <?php if ($error): ?><div class="alert alert-error"><?= htmlspecialchars($error) ?></div><?php endif; ?>
 
     <form method="post">
-      <label>Email</label>
-      <input type="email" name="email" required placeholder="nama@email.com">
+      <label>Username / Email</label>
+      <input type="text" name="email" required placeholder="cth: farhan">
       <label>Password</label>
       <input type="password" name="password" required placeholder="••••••••">
       <button class="btn btn-primary btn-block" style="margin-top:18px" type="submit">Log Masuk</button>
